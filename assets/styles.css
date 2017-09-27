@@ -1,0 +1,179 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+    margin-bottom: 20px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Navbar
+ */
+.navbar {
+    background-color: #0A243E;
+}
+
+#searchBtn {
+    color: white;
+    border-color: white;
+}
+
+#account-dropdown {
+    float: right;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    border-right: 1px solid #eee;
+}
+
+/* Sidebar navigation */
+.sidebar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar .nav {
+    margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+    width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+    margin-left: 0;
+}
+
+.sidebar .nav-link {
+    border-radius: 0;
+}
+
+/*
+ * Login Page
+ */
+
+/* Background */
+
+#particles-js {
+    background-color: #ffffff;
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:0;
+}
+
+#overlay {
+    position: relative;
+}
+
+/* Card */
+
+.card-login {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#login-logo {
+    margin-bottom: 1rem;
+}
+
+.alert-login {
+    margin-top: 20px;
+}
+
+/*
+ * Portal
+ */
+
+/* Alert */
+.alert-portal {
+    margin-top: 10px;
+}
+
+/* Widgets */
+.circle-widget {
+    background: #0A243E;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    position: relative;
+    margin: 60px auto;
+    font-size: 30px;
+    color: #fff;
+    line-height: 180px;
+    text-align: center;
+}
+
+.circle-left {
+    box-shadow: 0 0 0 30px #23b125;
+}
+
+.circle-right {
+    box-shadow: 0 0 0 30px #b12f23;
+}
+
+.card-portal {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-portal:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-body-portal {
+    min-height: 420px;
+    max-height: 420px;
+    overflow: scroll;
+}
+
+.table-widget {
+    text-align: left;
+}
+
+.ticker-widget {
+    font-size: 25px;
+}
+
+div.tab-content {
+    min-height: 200px;
+}
+
+.portal-chart {
+    margin-top: 1.5rem;
+    display: inline !important;
+}
+
+/* Placeholders */
+.placeholders {
+    padding-bottom: 3rem;
+}
+
+.placeholder img {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
