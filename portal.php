@@ -2,51 +2,38 @@
 require 'portalLogic.php';
 $pageTitle = "Dashboard";
 $currentPage = "portal";
+
+    if (!isset($_SESSION['notificationDismissed']) || $_SESSION['notificationDismissed'] != true)
+    {
+        $greeting = "Hello " . (string)$_SESSION['userFName'] . "!";
+        $loginMessage = "Welcome to your Dashboard for " . (string)$_SESSION['userOutletName'] . ".";
+
+        ?>
+            <div class="alert alert-primary alert-dismissible fade show alert-portal" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong><?php echo $greeting;?></strong> <?php echo $loginMessage;?>
+            </div>
+        <?php
+        $_SESSION['notificationDismissed'] = true;
+    }
+
 include "header.php";
 ?>
-
-<?php
-//if ($_SESSION['notificationDismissed'] === false)
-//{
-    $greeting = "Hello " . (string)$_SESSION['userFName'] . "!";
-    $loginMessage = "Welcome to your Dashboard for " . (string)$_SESSION['userOutletName'] . ".";
-    $_SESSION['notificationDismissed'] = true;
-    ?>
-    <div class="alert alert-primary alert-dismissible fade show alert-portal" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <strong><?php echo $greeting;?></strong> <?php echo $loginMessage;?>
-    </div>
-    <?php
-//}
-?>
-<!DOCTYPE HTML>
-<html lang="en-GB">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="assets/styles.css" rel="stylesheet">
-
-    <title>Home | Main Dashboard</title>
-
-</head>
-<body>
 
 <div class="container-fluid">
     <div class="row">
 
         <main class="col-md-12 pt-3" role="main">
-            <h1>Dashboard</h1>
+            <h1>Dashboard<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
             <section class="row text-center">
                 <div class="col-md-6">
                     <div class="mx-auto" style="width: 25rem; padding-bottom: 20px;">
                         <div class="card card-portal">
 
-                            <h4 class="card-header text-center">Total Sales | <strong><?php echo $_SESSION['userOutletName'];?></strong></h4>
+                            <h4 class="card-header text-center">Total Sales</h4>
 
                             <div class="card-body card-body-portal">
                                 <div class="tab-content">
@@ -133,7 +120,7 @@ include "header.php";
                 <div class="col-md-6">
                     <div class="mx-auto" style="width: 25rem; padding-bottom: 20px;">
                         <div class="card card-portal">
-                            <h4 class="card-header text-center">Active Consumers | <strong><?php echo $_SESSION['userOutletName'];?></strong></h4>
+                            <h4 class="card-header text-center">Active Consumers</h4>
 
                             <div class="card-body card-body-portal">
                                 <div class="tab-content">

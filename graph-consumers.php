@@ -14,31 +14,24 @@ while ($row = mysqli_fetch_assoc($query)) {
         }
     }
 }
-?>
-<!DOCTYPE HTML>
-<html lang="en-GB">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="assets/styles.css" rel="stylesheet">
-</head>
-<body>
 
-<?php $currentPage = "graph"; include "header.php";?>
+$pageTitle = "Consumers | Graphs";
+$currentPage = "graph";
+include "header.php";
+?>
 
 <div class="container-fluid">
     <div class="row">
         <nav class="col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="graph-overview.php">Overview | Total Sales<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="graph-overview.php">Total Sales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="graph-consumers.php">Active Users</a>
+                    <a class="nav-link active" href="graph-consumers.php">Active Consumers<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="graph-outlets.php">Transactions Throughout a Day</a>
+                    <a class="nav-link" href="graph-transactions.php">Transaction Volume</a>
                 </li>
             </ul>
 
@@ -50,7 +43,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         </nav>
 
         <main class="ml-sm-auto col-md-10 pt-3" role="main">
-            <h1 id="overview">Active Users | <?php echo $_SESSION['userOutletName'];?></h1>
+            <h1 id="overview">Active Users<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
             <section class="row">
                 <div class="col-md-3 left">

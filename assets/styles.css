@@ -110,9 +110,6 @@ h1 {
  */
 
 /* Alert */
-.alert-portal {
-    margin-top: 10px;
-}
 
 /* Widgets */
 .circle-widget {
@@ -164,16 +161,39 @@ div.tab-content {
 }
 
 .portal-chart {
-    margin-top: 1.5rem;
+    margin-top: 4rem;
     display: inline !important;
 }
 
-/* Placeholders */
-.placeholders {
-    padding-bottom: 3rem;
+/*
+ * Import Page
+ */
+
+.btn-upload {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.placeholder img {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+.label-file-select{
+    overflow: hidden;
+}
+
+#drop{
+    margin-top: auto;
+    border:2px dashed #bbb;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    padding:25px;
+    text-align: center;
+    vertical-align: middle;
+    font:20pt bold,"Vollkorn";color:#bbb;
+    width: 100%;
+    min-height: 250px;
+}
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
 }

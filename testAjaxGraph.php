@@ -53,7 +53,7 @@ $totalJS = json_encode($totalJS);
                             <a class="nav-link" href="graph-consumers.php">Consumers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="graph-outlets.php">Outlets</a>
+                            <a class="nav-link" href="graph-transactions.php">Outlets</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="graph-transactions.php">Transactions</a>

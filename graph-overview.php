@@ -1,6 +1,6 @@
 <?php
-//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
-//session_start();
+$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+session_start();
 include 'getOverviewData.php';
 $totalData = [];
 $totalData = $_SESSION['data'];
@@ -16,38 +16,26 @@ while($row = mysqli_fetch_assoc($totalData)) {
 
 $totalJS = json_encode($totalJS);
 
+$pageTitle = "Total Sales | Graphs";
+$currentPage = "graph";
+include "header.php";
+
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en-GB">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link href="assets/styles.css" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
-
-        <title>Overview | Graphs</title>
-
-    </head>
-    <body>
-
-        <?php $currentPage = "graph"; include "header.php";?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
         <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-2 d-none d-sm-block bg-light sidebar">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="graph-overview.php">Overview | Total Sales <span class="sr-only">(current)</span></a>
+                            <a class="nav-link active" href="graph-overview.php">Total Sales<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="graph-consumers.php">Active Users</a>
+                            <a class="nav-link" href="graph-consumers.php">Active Consumers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="graph-outlets.php">Transactions Throughout a Day</a>
+                            <a class="nav-link" href="graph-transactions.php">Transaction Volume</a>
                         </li>
                     </ul>
 
@@ -59,7 +47,7 @@ $totalJS = json_encode($totalJS);
                 </nav>
 
                 <main class="ml-sm-auto col-md-10 pt-3" role="main">
-                    <h1 id="overview">Overview | <?php echo $_SESSION['userOutletName'];?></h1>
+                    <h1 id="overview">Total Sales<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
                     <section class="row">
                         <div class="col-md-3 left">

@@ -1,29 +1,11 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: cmckillop
- * Date: 13/09/2017
- * Time: 10:45
- */
+
+$pageTitle = "Overview | Trends";
+$currentPage = "trends";
+include "header.php";
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en-GB">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link href="assets/styles.css" rel="stylesheet">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
-
-        <title>Overview | Trends</title>
-
-    </head>
-    <body>
-
-        <?php $currentPage = "trends"; include "header.php";?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
         <div class="container-fluid">
             <div class="row">

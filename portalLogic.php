@@ -1,18 +1,7 @@
 <?php
 require "connectToDatabase.php";
 session_start();
-/*
- * Bootstrap Banner Greeting
- */
-if (!isset($_SESSION['notificationDismissed'])) {
-    $_SESSION['notificationDismissed'] = false;
-}
-if ($_SESSION['notificationDismissed'] === false)
-{
-    $greeting = "Hello " . (string)$_SESSION['userFName'] . "!";
-    $loginMessage = "Welcome to your Dashboard for " . (string)$_SESSION['userOutletName'] . ".";
-    $_SESSION['notificationDismissed'] = true;
-}
+
 /*
  * Data for Left Widget
  */
