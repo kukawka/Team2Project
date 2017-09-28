@@ -22,20 +22,18 @@ $currentPage = "portal";
 include "header.php";
 ?>
 
-        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
-
 <div class="container-fluid">
     <div class="row">
 
         <main class="col-md-12 pt-3" role="main">
-            <h1>Dashboard<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
+            <h1>Your Dashboard</h1>
 
             <section class="row text-center">
                 <div class="col-md-6">
                     <div class="mx-auto" style="width: 25rem; padding-bottom: 20px;">
                         <div class="card card-portal">
 
-                            <h4 class="card-header text-center">Total Sales</h4>
+                            <h4 class="card-header text-center">Total Sales<small> - <?php echo $_SESSION['userOutletName'];?></small></h4>
 
                             <div class="card-body card-body-portal">
                                 <div class="tab-content">
@@ -45,7 +43,7 @@ include "header.php";
 
                                     <div class="tab-pane fade show active" id="overview-left" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
                                                 <div class="circle-widget circle-left" id="totalVal"><span>£1,133</span></div>
-                                        <p class="card-text ticker-widget" id="totalPercent" >⬆5%</p>
+                                        <p class="card-text ticker-widget" id="totalPercent" data-toggle="tooltip" data-placement="bottom" title="On this week last year">⬆5%</p>
                                     </div>
                                     <div class="tab-pane fade" id="chart-left" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
                                         <canvas class="portal-chart" id="myChart"></canvas>
@@ -122,7 +120,7 @@ include "header.php";
                 <div class="col-md-6">
                     <div class="mx-auto" style="width: 25rem; padding-bottom: 20px;">
                         <div class="card card-portal">
-                            <h4 class="card-header text-center">Active Consumers</h4>
+                            <h4 class="card-header text-center">Active Consumers<small> - <?php echo $_SESSION['userOutletName'];?></small></h4>
 
                             <div class="card-body card-body-portal">
                                 <div class="tab-content">
@@ -133,7 +131,7 @@ include "header.php";
 
                                     <div class="tab-pane fade show active" id="overview-right" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
                                         <div class="circle-widget circle-right" id="activeCus">526</div>
-                                        <p class="card-text ticker-widget" id="activePercent">⬇2%</p>
+                                        <p class="card-text ticker-widget" id="activePercent" data-toggle="tooltip" data-placement="bottom" title="On this week last year">⬇2%</p>
                                     </div>
 
                                     <div class="tab-pane fade" id="chart-right" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
@@ -208,6 +206,11 @@ include "header.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
 <script>
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     var totData = <?php echo $leftChartTotalJS; ?>;
     var numData =[];
     for (var i = 0; i < totData.length; i++) {
@@ -338,10 +341,5 @@ include "header.php";
         }
     });
 </script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
 </body>
 </html>
