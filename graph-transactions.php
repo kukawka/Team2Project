@@ -36,20 +36,15 @@ include "header.php";
                     <a class="nav-link active" href="graph-transactions.php">Daily Transactions<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Export</a>
-                </li>
-            </ul>
         </nav>
 
         <main class="ml-sm-auto col-md-10 pt-3" role="main">
-            <h1 id="overview">Transactions<small> - <?php echo $_SESSION['userOutletName'];?> (for a given day)</small></h1>
+            <h1 id="overview">Daily Transactions<small> - <?php echo $_SESSION['userOutletName'];?> (for a given day)</small></h1>
 
             <section class="row">
                 <div class="col-md-3">
 
+                    <p>Select a date:</p>
                     <form>
                         <div class="input-group">
                             <input type="text" id="datepicker" class="form-control date-picker">

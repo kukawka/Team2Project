@@ -33,13 +33,7 @@ include "header.php";
                             <a class="nav-link" href="graph-consumers.php">Active Consumers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="graph-transactions.php">Transaction Volume</a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Export</a>
+                            <a class="nav-link" href="graph-transactions.php">Daily Transactions</a>
                         </li>
                     </ul>
                 </nav>
