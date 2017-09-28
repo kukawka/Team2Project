@@ -44,7 +44,7 @@ include "header.php";
             <section class="row">
                 <div class="col-md-3">
 
-                    <p>Select a date:</p>
+                    <label for="chooseDate">Select a date:</label>
                     <form>
                         <div class="input-group">
                             <input type="text" id="datepicker" class="form-control date-picker">
