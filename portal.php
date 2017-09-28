@@ -259,14 +259,14 @@ include "header.php";
 		 //worse
 		 percent = percent/cus[0] * 100;
 		 $('#activePercent').html("<i class=\"fa fa-arrow-down fa-3\" aria-hidden=\"true\"></i>");
-		 $('#activePercent').append(Math.round(percent)+"%");
+		 $('#activePercent').append(" " + Math.round(percent) + "%");
 		 $('.circle-right').css("box-shadow", "0 0 0 30px #b12f23");
 
 	 } else {
 		//better 
 		percent = cus[0]/percent * 100;
 		$('#activePercent').html("<i class=\"fa fa-arrow-up fa-3\" aria-hidden=\"true\"></i>");
-		$('#activePercent').append(Math.round(percent)+"%");
+		$('#activePercent').append(" " + Math.round(percent) + "%");
 		$('.circle-right').css("box-shadow", "0 0 0 30px #23b125");
 	 }
 	 
@@ -281,14 +281,14 @@ include "header.php";
 		 //worse
 		 percent = percent/total * 100;
 		 $('#totalPercent').html("<i class=\"fa fa-arrow-down fa-3\" aria-hidden=\"true\"></i>");
-		 $('#totalPercent').append(Math.round(percent)+"%");
+		 $('#totalPercent').append(" " + Math.round(percent) + "%");
 		 $('.circle-left').css("box-shadow", "0 0 0 30px #b12f23");
 
 	 } else {
 		//better 
 		percent = total/percent * 100;
 		$('#totalPercent').html("<i class=\"fa fa-arrow-up fa-3\" aria-hidden=\"true\"></i>");
-		$('#totalPercent').append(Math.round(percent)+"%");
+		$('#totalPercent').append(" " + Math.round(percent) + "%");
 		$('.circle-left').css("box-shadow", "0 0 0 30px #23b125");
 	 }
 	 
