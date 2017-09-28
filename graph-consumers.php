@@ -2,10 +2,11 @@
 include('connectToDatabase.php');
 session_start();
 
+$outlet=$_SESSION['userOutletName'];
 $au = array();
 $year = '2017';
 
-$query = mysqli_query($conn, "select count(distinct new_user) as au, MONTH(date_time) as au_month from ip17team2db.raw_data where YEAR(date_time)='2017' GROUP BY MONTH(date_time)");
+$query = mysqli_query($conn, "select count(distinct new_user) as au, MONTH(date_time) as au_month from ip17team2db.raw_data where YEAR(date_time)='2017' and outlet_name='$outlet' GROUP BY MONTH(date_time)");
 
 while ($row = mysqli_fetch_assoc($query)) {
     foreach ($row as $r) {
@@ -58,6 +59,7 @@ include "header.php";
                                 <option value="Level 2, Reception">Level 2, Reception</option>
                                 <option value="Mono">Mono</option>
                                 <option value="Liar Bar">Liar Bar</option>
+                                <option value="Floor Five">Floor Five</option>
                                 <option value="DUSA The Union - Marketplace">DUSA The Union - Marketplace</option>
                                 <option value="College Shop">College Shop</option>
                                 <option value="Library">Library</option>
@@ -93,6 +95,9 @@ include "header.php";
 <canvas id="myChart" width="400" height="400"></canvas>
 
 <script>
+    var outlet=<?php echo json_encode($outlet);?> ;
+    $('#outletSelect').val(outlet);
+
     var myChart;
     var initialData=[];
     initialData=<?php echo json_encode($au);?> ;
@@ -268,19 +273,18 @@ include "header.php";
             },
             options: {
                 scales: {
-                    /*yAxes: [{
-                        stacked: true,
-                        ticks: {
-                            beginAtZero: true
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: '# of Active Users'
                         }
                     }],
                     xAxes: [{
-                        stacked: true,
-                        ticks: {
-                            beginAtZero: true
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month'
                         }
-                    }]*/
-
+                    }]
                 },
                 responsive: true
             }
