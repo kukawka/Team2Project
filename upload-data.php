@@ -6,9 +6,8 @@ include "header.php";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js.map"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.4/xlsx.full.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
+<div id="popups"></div>
 <div class="container-fluid">
     <div class="row">
 
@@ -35,8 +34,6 @@ include "header.php";
 
     </div>
 </div>
-
-    <div id="popups"></div>
 
     <script>
 
@@ -106,20 +103,21 @@ include "header.php";
 			//removed for testing
             console.log(query);
             query = query + "Call parseTempToRaw();";
+
 			if(f.name.split('.').pop() !== "xlsx"){
 					$("<div class=\"alert alert-danger alert-dismissible fade show alert-portal\"\n\
                      role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
                         data-dismiss=\"alert\" aria-label=\"Close\">\n\
                             <span aria-hidden=\"true\">&times;</span></button>\n\
-                                <strong>WARNING:</strong> \n\ " +
-                                    f.name +" could not be uploaded</div>").hide().appendTo("#popups").fadeIn("slow");
+                                <strong>File upload failed!</strong> \n\ " +
+                                    "Please ensure '" + f.name +"' is in XLSX format.</div>").hide().appendTo("#popups").fadeIn("fast");
 				}else{
-                $("<div class=\"alert alert-primary alert-dismissible fade show alert-portal\"\n\
+                $("<div class=\"alert alert-success alert-dismissible fade show alert-portal\"\n\
                      role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
                         data-dismiss=\"alert\" aria-label=\"Close\">\n\
                             <span aria-hidden=\"true\">&times;</span></button>\n\
-                                <strong>File:</strong> \n\ " +
-                                    f.name +"has been added to the database</div>").hide().appendTo("#popups").fadeIn("slow");
+                                <strong>File uploaded successfully!</strong> \n\ '" +
+                                    f.name + "' has been added to the database</div>").hide().appendTo("#popups").fadeIn("fast");
 				}
 				
 				/*

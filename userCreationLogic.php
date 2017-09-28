@@ -3,7 +3,7 @@
     require "connectToDatabase.php";
     session_start();
 
-    $outletQuery = sprintf("SELECT DISTINCT outlet_id, outlet FROM ip17team2db.totals;");
+    $outletQuery = sprintf("SELECT DISTINCT outlet_id, outlet FROM ip17team2db.totals WHERE outlet IS NOT NULL;");
     $outletResult = mysqli_query($conn, $outletQuery);
 
     /*

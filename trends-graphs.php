@@ -1,13 +1,6 @@
 <?php
 $q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 
-/**
- * Created by IntelliJ IDEA.
- * User: cmckillop
- * Date: 13/09/2017
- * Time: 10:45
- */
-
 include 'getTrendsData.php';
 $totalData = [];
 $totalData = $_SESSION['data'];

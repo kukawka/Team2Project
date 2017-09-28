@@ -26,7 +26,7 @@ include "header.php";
     <div class="row">
 
         <main class="col-md-12 pt-3" role="main">
-            <h1>Your Dashboard</h1>
+            <h1>Dashboard |<small> Yoyo Usage</small></h1>
 
             <section class="row text-center">
                 <div class="col-md-6">
@@ -125,8 +125,7 @@ include "header.php";
                             <div class="card-body card-body-portal">
                                 <div class="tab-content">
 
-                                    <p class="card-text">
-                                        28/08/2017 – 03/09/2017</p>
+                                    <p class="card-text">28/08/2017 – 03/09/2017</p>
                                     <hr>
 
                                     <div class="tab-pane fade show active" id="overview-right" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
@@ -197,13 +196,10 @@ include "header.php";
                             </div>
                         </div>
                     </div>
-
                 </div>
         </main>
     </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
 <script>
 

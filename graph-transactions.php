@@ -47,7 +47,7 @@ include "header.php";
                     <label for="chooseDate">Select a date:</label>
                     <form>
                         <div class="input-group">
-                            <input type="text" id="datepicker" class="form-control date-picker">
+                            <input type="text" id="datepicker" class="form-control date-picker" value="Date">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" id="chooseDate" type="button">Go!</button>
                             </span>
@@ -101,11 +101,9 @@ include "header.php";
     $("#chooseDate").click(function () {
         //alert('changed!');
         var dateChosen = $("#datepicker").val();
-        alert(dateChosen);
         $.post("outlets_chart_backend.php", {
             date: dateChosen
         }).done(function (data) {
-            alert(data);
             //constructGraph(JSON.parse(data));
             parseData(JSON.parse(data));
 
@@ -129,7 +127,7 @@ include "header.php";
     function updateGraph(jArray, labels) {
         myChart.data.labels = labels;
         var newDataset = {
-            label: 'Chosen Day',
+            label: 'Transactions',
             data: jArray,
             borderColor: "#3e95cd",
             fill: true
@@ -155,7 +153,7 @@ include "header.php";
                 labels: labels,
                 datasets: [{
                     data: jArray,
-                    label: "Chosen Day",
+                    label: "Transactions",
                     borderColor: "#3e95cd",
                     fill: true
                 }]
@@ -165,7 +163,7 @@ include "header.php";
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: '# of Transactions'
+                            labelString: 'No. of Transactions'
                         }
                     }]/*
                     xAxes: [{
