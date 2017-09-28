@@ -56,8 +56,11 @@ if (empty($_SESSION['userLoggedIn']))
             <li class="<?php if ($currentPage === "trends"): echo "active"; endif; ?>  nav-item">
                 <a class="nav-link" href="trends-overview.php">Trends<?php if ($currentPage === "trends"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
             </li>
+            <li class="<?php if ($currentPage === "export"): echo "active"; endif; ?>  nav-item">
+                <a class="nav-link" href="#">Export<?php if ($currentPage === "trends"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
+            </li>
             <li class="<?php if ($currentPage === "help"): echo "active"; endif; ?>  nav-item">
-                <a class="nav-link disabled" href="#">Help<?php if ($currentPage === "help"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
+                <a class="nav-link" href="assets/DUSAYoyo_Dashboard_Guide.pdf">Help<?php if ($currentPage === "help"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
             </li>
         </ul>
 
