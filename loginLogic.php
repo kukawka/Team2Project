@@ -1,5 +1,7 @@
 <?php
 include('connectToDatabase.php');
+$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+
 session_start(); // Starting Session
 /*
  * 0 - No error

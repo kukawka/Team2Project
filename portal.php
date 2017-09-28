@@ -224,9 +224,12 @@ include "header.php";
             labelNames.push(totData[i]);
         }
     }
-	
 	for (var i = 0; i < labelNames.length; i++){
-        $("#outletList").append("<tr><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>");
+		if($_SESSION['userOutletName'].equals(labelNames)){	
+			$("#outletList").append("<tr class=\"table-primary\"><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>");
+		} else {
+			$("#outletList").append("<tr><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>");
+		}
     }
 	
 	var userData = <?php echo $allUsers; ?>;
@@ -244,7 +247,11 @@ include "header.php";
     }
 	
 	for (var i = 0; i < userLabelNames.length; i++) {
-        $("#userList").append("<tr><td>"+userLabelNames[i]+"</td><td>"+userNumData[i]+"</td></tr>");
+		if($_SESSION['userOutletName'].equals(userLabelNames[i])){
+			$("#userList").append("<tr class=\"table-primary\"><td>"+userLabelNames[i]+"</td><td>"+userNumData[i]+"</td></tr>");
+		}else{
+			$("#userList").append("<tr><td>"+userLabelNames[i]+"</td><td>"+userNumData[i]+"</td></tr>");
+		}
     }
 	
 	
