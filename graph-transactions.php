@@ -39,7 +39,7 @@ include "header.php";
         </nav>
 
         <main class="ml-sm-auto col-md-10 pt-3" role="main">
-            <h1 id="overview">Daily Transactions<small> - <?php echo $_SESSION['userOutletName'];?> (for a given day)</small></h1>
+            <h1 id="overview">Daily Transactions<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
             <section class="row">
                 <div class="col-md-3">

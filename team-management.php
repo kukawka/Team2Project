@@ -37,12 +37,6 @@
                             <a class="nav-link" href="team-edit.php">Manage User</a>
                         </li>
                     </ul>
-
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Example</a>
-                        </li>
-                    </ul>
                 </nav>
 
                 <main class="ml-sm-auto col-md-10 pt-3" role="main">

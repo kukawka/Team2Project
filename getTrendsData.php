@@ -1,5 +1,5 @@
 <?php
-$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 $checkOption = isset($_POST['checkOption']) ? $_POST['checkOption'] : null;
 $startDate = isset($_POST['startDate']) ? $_POST['startDate'] : null;
 $endDate = isset($_POST['endDate']) ? $_POST['endDate'] : null;

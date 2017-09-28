@@ -46,7 +46,7 @@ include "header.php";
 
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Year</label>
+                                    <label for="yearOption">Year</label>
                                     <select class="form-control" id="yearOption">
                                         <option value="3000">All years</option>
                                         <option value="2017">2017</option>
@@ -55,7 +55,7 @@ include "header.php";
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Timescale</label>
+                                    <label for="scaleOption">Timescale</label>
                                     <select class="form-control" id="scaleOption">
                                         <option value="1">Week</option>
                                         <option value="2">Four Weeks</option>
@@ -64,7 +64,7 @@ include "header.php";
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect3">Outlet</label>
+                                    <label for="outletOption">Outlet</label>
                                     <select  class="form-control" id="outletOption">
                                         <option value="238">Library</option>
                                         <option value="239">Spare</option>

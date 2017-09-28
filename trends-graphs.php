@@ -1,5 +1,5 @@
 <?php
-$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 
 include 'getTrendsData.php';
 $totalData = [];
@@ -16,117 +16,95 @@ while($row = mysqli_fetch_assoc($totalData)) {
 
 $totalJS = json_encode($totalJS);
 
+$pageTitle = "Spending | Trends";
+$currentPage = "trends";
+include "header.php";
 ?>
 
-<!DOCTYPE HTML>
-<html lang="en-GB">
-    <html lang="en-GB">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-             integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-                     <title>User Tribes | Graphs</title>
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-           <link href="assets/styles.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="assets/styles.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-sm-block bg-light sidebar">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="trends-overview.php">Tribe Spending<span class="sr-only">(current)</span></a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tribes.php">Guide</a>
+                </li>
+            </ul>
+        </nav>
 
-        <title>Overview | Trends</title>
+        <main class="ml-sm-auto col-md-10 pt-3" role="main">
+            <h1 id="overview">Spending</h1>
 
-    </head>
-    <body>
+            <section class="row">
+                <div class="col-md-3">
 
-        <?php $currentPage = "trends"; include "header.php";?>
-
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="col-md-2 d-none d-sm-block bg-light sidebar">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="trends-overview.php">Overview<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">User Types</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Graphs</a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Export</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <main class="ml-sm-auto col-md-10 pt-3" role="main">
-                    <h1 id="overview">Trends</h1>
-
-                    <h1 id="overview">Overview</h1>
-
-                    <section class="row">
-                        <div class="col-md-3 left">
-
-                            <form>
-                      
-
-                               <section class="row">
-                                    
-                                    <div class="form-group">
-                                    <label> Start Date</label>
-                                   <input class="form-control" name="date" type="text" id="dateChosen"></div>
-                               
-                                   
-                                   
-                                </section>
-
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">User Tribes</label><br>
-                                        <input type="checkbox" id="check1" name=" Coffee drinkers" value="1 #C0392B" >Coffee drinkers</input><br>
-                                        <input type="checkbox" id="check2" name=" Library readers" value="2 #AF7AC5">Library readers</input><br>
-                                        <input type="checkbox" id="check3" name=" Late night drinks" value="3 #5499C7">Late night drinks</input><br>
-                                        <input type="checkbox" id="check4" name=" New students" value="4 #48C9B0">New students</input><br>
-                                        <input type="checkbox" id="check5"name=" Medical students" value="5 #F4D03F">Medical students</input><br>
-                                        <input type="checkbox" id="check6" name=" Event goers" value="6 #DC7633">Event goers</input><br>
-                                        <input type="checkbox" id="check7" name=" Something else" value="7 #566573">Something else</input><br>
-                                </div>
-             
-                            
-                               </form>
-
+                    <form>
+                        <div class="form-group">
+                            <label for="dateChosen">Date</label>
+                            <input class="form-control" name="date" type="text" id="dateChosen">
                         </div>
-                        <div class="col-md-9 right">
-                            <canvas id="line-chart"></canvas>
+                        <label for="form-check-label">Tribe</label>
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check1" name="Coffee Drinkers" value="1 #C0392B" >
+                                Coffee Drinkers
+                            </label>
                         </div>
-                        <div>
-                            <br>
-                            <br>
-                            This area will display the dusa IDS of all the users that meet that form part of the tribes. WORK IN PROGRESS (THIS FEATURE MAY MOVE TO EXPORT)
+
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check2" name="Library User" value="2 #AF7AC5">
+                                Library Use
+                            </label>
                         </div>
-                    </section>
-                </main>
 
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check3" name="Night Owls" value="3 #5499C7">
+                                Night Owls
+                            </label>
+                        </div>
 
-    <script>
-    </script>
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check4" name="New Students" value="4 #48C9B0">
+                                New Students
+                            </label>
+                        </div>
 
-  
-    </body>
-                    
-             
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check5" name="Medical Students" value="5 #F4D03F">
+                                Medical Students
+                            </label>
+                        </div>
 
-         
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check6" name="Event-goers" value="6 #DC7633">
+                                Event Goers
+                            </label>
+                        </div>
 
+                        <div class="form-group">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="check7" name="Everyone else" value="7 #566573">
+                                Everyone Else
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-9">
+                    <canvas id="line-chart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
         <script>
 
         $( function() {
@@ -407,7 +385,7 @@ $totalJS = json_encode($totalJS);
                         yAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: "User Tribes"
+                                labelString: "No. of Users"
                             }
                         }]
                     }

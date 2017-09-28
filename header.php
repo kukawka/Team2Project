@@ -50,14 +50,23 @@ if (empty($_SESSION['userLoggedIn']))
             <li class="<?php if ($currentPage === "graph"): echo "active"; endif; ?> nav-item">
                 <a class="nav-link" href="graph-overview.php">Graphs<?php if ($currentPage === "graph"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
             </li>
+            <li class="<?php if ($currentPage === "trends"): echo "active"; endif; ?>  nav-item">
+                <a class="nav-link" href="trends-graphs.php">Trends<?php if ($currentPage === "trends"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
+            </li>
             <li class="<?php if ($currentPage === "import"): echo "active"; endif; ?> nav-item">
                 <a class="nav-link" href="upload-data.php">Import<?php if ($currentPage === "import"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
             </li>
-            <li class="<?php if ($currentPage === "trends"): echo "active"; endif; ?>  nav-item">
-                <a class="nav-link" href="trends-overview.php">Trends<?php if ($currentPage === "trends"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
-            </li>
-            <li class="<?php if ($currentPage === "export"): echo "active"; endif; ?>  nav-item">
-                <a class="nav-link" href="#">Export<?php if ($currentPage === "trends"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
+            <li class="<?php if ($currentPage === "export"): echo "active"; endif; ?> nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Export
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" id="account-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="assets/reports/Disbursals.xlsx" target="_blank">Disbursal</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="assets/reports/GBP Dundee Students Association Yoyo transaction report 2017-08-14 to 2017-08-20.xlsx" target="_blank">w/c: 14/08/2017</a>
+                    <a class="dropdown-item" href="assets/reports/GBP Dundee Students Association Yoyo transaction report 2017-08-21 to 2017-08-27.xlsx" target="_blank">w/c: 21/08/2017</a>
+                    <a class="dropdown-item" href="assets/reports/GBP Dundee Students Association Yoyo transaction report 2017-08-28 to 2017-09-03.xlsx" target="_blank">w/c: 28/08/2017</a>
+                </div>
             </li>
             <li class="<?php if ($currentPage === "help"): echo "active"; endif; ?>  nav-item">
                 <a class="nav-link" href="help.php">Help<?php if ($currentPage === "help"): echo "<span class=\"sr-only\">(current)</span>"; endif; ?></a>
@@ -68,13 +77,12 @@ if (empty($_SESSION['userLoggedIn']))
         <ul class="navbar-nav">
             <li class="<?php if ($currentPage === "management"): echo "active"; endif; ?> nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account
+                    Options
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" id="account-dropdown" aria-labelledby="navbarDropdownMenuLink">
-                    <!-- <a class="dropdown-item" href="#">Options</a> -->
                     <a class="dropdown-item" href="team-management.php">Manage Team</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
+                    <a class="dropdown-item" href="logout.php">Sign out</a>
                 </div>
             </li>
         </ul>
