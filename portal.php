@@ -22,6 +22,8 @@ $currentPage = "portal";
 include "header.php";
 ?>
 
+        		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+
 <div class="container-fluid">
     <div class="row">
 
@@ -42,7 +44,7 @@ include "header.php";
                                     <hr>
 
                                     <div class="tab-pane fade show active" id="overview-left" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
-                                        <div class="circle-widget circle-left">£1,133</div>
+                                                <div class="circle-widget circle-left" id="totalVal"><span>£1,133</span></div>
                                         <p class="card-text ticker-widget">⬆5%</p>
                                     </div>
                                     <div class="tab-pane fade" id="chart-left" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
@@ -57,7 +59,7 @@ include "header.php";
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
+                                            <!--<tr>
                                                 <td>Mono</td>
                                                 <td>£5,329</td>
                                             </tr>
@@ -85,7 +87,7 @@ include "header.php";
                                                 <td>Level 2 Reception</td>
                                                 <td>£926</td>
                                             </tr>
-                                            <!--<tr>
+                                            <tr>
                                                 <td>Entertainments</td>
                                                 <td>£2,533</td>
                                             </tr>
@@ -218,6 +220,16 @@ include "header.php";
             labelNames.push(totData[i]);
         }
     }
+	
+	for (var i = 0; i < labelNames.length; i++) {
+        $("tbody").append("<tr><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>")
+    }
+	
+	
+	
+	 var total = (numData.reduce(function(sum, value){return parseInt(sum) + parseInt(value);},0));
+     $('#totalVal span').text("£"+total);
+	 console.log(total);
     var ctx = document.getElementById('myChart').getContext('2d');
     var mixedChart = new Chart(ctx, {
         type: 'doughnut',
