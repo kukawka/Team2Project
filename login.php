@@ -1,4 +1,6 @@
 <?php
+$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+
 include('loginLogic.php');
 if (!empty($_SESSION['userLoggedIn'])) {
     header("location: portal.php");

@@ -6,6 +6,8 @@ include "header.php";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js.map"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.4/xlsx.full.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 <div class="container-fluid">
     <div class="row">
@@ -101,18 +103,44 @@ include "header.php";
                 }
 
 
+			//removed for testing
             console.log(query);
             query = query + "Call parseTempToRaw();";
-            $.post("upload.php",{query:query}).done(function(data){
-                console.log(data);
+			if(f.name.split('.').pop() !== "xlsx"){
+					$("<div class=\"alert alert-danger alert-dismissible fade show alert-portal\"\n\
+                     role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
+                        data-dismiss=\"alert\" aria-label=\"Close\">\n\
+                            <span aria-hidden=\"true\">&times;</span></button>\n\
+                                <strong>WARNING:</strong> \n\ " +
+                                    f.name +" could not be uploaded</div>").hide().appendTo("#popups").fadeIn("slow");
+				}else{
                 $("<div class=\"alert alert-primary alert-dismissible fade show alert-portal\"\n\
                      role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
                         data-dismiss=\"alert\" aria-label=\"Close\">\n\
                             <span aria-hidden=\"true\">&times;</span></button>\n\
                                 <strong>File:</strong> \n\ " +
                                     f.name +"has been added to the database</div>").hide().appendTo("#popups").fadeIn("slow");
-
-            });
+				}
+				
+				/*
+            $.post("upload.php",{query:query}).done(function(data){
+                console.log(data);
+				if(f.name.split('.').pop() !== "xlsx"){
+					$("<div class=\"alert alert-danger alert-dismissible fade show alert-portal\"\n\
+                     role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
+                        data-dismiss=\"alert\" aria-label=\"Close\">\n\
+                            <span aria-hidden=\"true\">&times;</span></button>\n\
+                                <strong>WARNING:</strong> \n\ " +
+                                    f.name +"could not be uploaded</div>").hide().appendTo("#popups").fadeIn("slow");
+				}else{
+                $("<div class=\"alert alert-primary alert-dismissible fade show alert-portal\"\n\
+                     role=\"alert\" id=\"uploadAlert\"><button type=\"button\" class=\"close\" \n\
+                        data-dismiss=\"alert\" aria-label=\"Close\">\n\
+                            <span aria-hidden=\"true\">&times;</span></button>\n\
+                                <strong>File:</strong> \n\ " +
+                                    f.name +"has been added to the database</div>").hide().appendTo("#popups").fadeIn("slow");
+				}
+            });*/
 
 
             console.log(arrayOfDates);
