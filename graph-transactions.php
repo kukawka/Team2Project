@@ -48,11 +48,11 @@ include "header.php";
             <h1 id="overview">Transactions<small> - <?php echo $_SESSION['userOutletName'];?> (for a given day)</small></h1>
 
             <section class="row">
-                <div class="col-md-3 left">
+                <div class="col-md-3">
 
                     <form>
                         <div class="input-group">
-                            <input type="text" id="datepicker" class="form-control">
+                            <input type="text" id="datepicker" class="form-control date-picker">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" id="chooseDate" type="button">Go!</button>
                             </span>
@@ -60,7 +60,7 @@ include "header.php";
                     </form>
 
                 </div>
-                <div class="col-md-9 right">
+                <div class="col-md-9">
                     <canvas id="line-chart"></canvas>
                 </div>
             </section>
@@ -68,16 +68,6 @@ include "header.php";
 
     </div>
 </div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 
     $( function() {
@@ -190,7 +180,8 @@ include "header.php";
                         }
                     }]*/
 
-                }
+                },
+                responsive: true
             }
         };
         myChart = new Chart(ctx, config);

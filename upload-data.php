@@ -4,12 +4,8 @@ $currentPage = "import";
 include "header.php";
 ?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script lang="javascript" src="sheetJS/dist/xlsx.full.min.js"></script>
-    <script lang="javascript" src="require.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.11.4/xlsx.full.min.js"></script>
 
 <div class="container-fluid">
     <div class="row">
@@ -18,19 +14,18 @@ include "header.php";
             <h1 id="overview">Import Data</h1>
 
             <section class="row">
-                <div class="col-md-3 left">
+                <div class="col-md-3">
                     <label class="custom-file label-file-select">
-                        <input type="file" id="files" name="files[]" class="custom-file-inputcustom-file-input" required multiple>
+                        <input type="file" id="files" name="files[]" class="custom-file-input" required multiple>
                         <span class="custom-file-control"></span>
                     </label>
-                    <input type="file" id="files" name="files[]" class="btn btn-default" multiple/>
                     <button type="button" class="btn btn-block btn-primary btn-upload" id="upload" value="Upload" >Upload</button>
                 </div>
 
-                <div class="col-md-9 right">
+                <div class="col-md-9">
                     <div id="drop">
                         <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i>
-                        <span style="display: block;">Drop file here to upload</span>
+                        <span>Drop file here to upload</span>
                     </div>
                 </div>
             </section>
@@ -44,6 +39,7 @@ include "header.php";
     <script>
 
         $('.custom-file-input').on('change', function() {
+            // noinspection JSAnnotator
             let fileName = $(this).val().split('\\').pop();
             $(this).next('.custom-file-control').addClass("selected").html(fileName);
         });

@@ -46,7 +46,7 @@ include "header.php";
             <h1 id="overview">Active Users<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
             <section class="row">
-                <div class="col-md-3 left">
+                <div class="col-md-3">
 
                     <form>
                         <div class="form-group">
@@ -87,7 +87,7 @@ include "header.php";
                     </form>
 
                 </div>
-                <div class="col-md-9 right">
+                <div class="col-md-9">
                     <canvas id="line-chart"></canvas>
                 </div>
             </section>
@@ -96,10 +96,7 @@ include "header.php";
     </div>
 </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 <canvas id="myChart" width="400" height="400"></canvas>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script>
     var myChart;
@@ -290,7 +287,8 @@ include "header.php";
                         }
                     }]*/
 
-                }
+                },
+                responsive: true
             }
         };
         myChart = new Chart(ctx, config);

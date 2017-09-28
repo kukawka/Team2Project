@@ -8,10 +8,6 @@ if($year || $scale || $outlet){
     $isTrue = true;
 }
 
-
-
-session_start();
-
 //database
 define('DB_HOST', 'silva.computing.dundee.ac.uk');
 define('DB_USERNAME', 'ip17team2');

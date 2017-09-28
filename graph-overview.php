@@ -1,5 +1,5 @@
 <?php
-$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 session_start();
 include 'getOverviewData.php';
 $totalData = [];
@@ -21,8 +21,6 @@ $currentPage = "graph";
 include "header.php";
 
 ?>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
         <div class="container-fluid">
             <div class="row">
@@ -50,7 +48,7 @@ include "header.php";
                     <h1 id="overview">Total Sales<small> - <?php echo $_SESSION['userOutletName'];?></small></h1>
 
                     <section class="row">
-                        <div class="col-md-3 left">
+                        <div class="col-md-3">
 
                             <form>
                                 <div class="form-group">
@@ -110,7 +108,7 @@ include "header.php";
                             </form>
 
                         </div>
-                        <div class="col-md-9 right">
+                        <div class="col-md-9">
                             <canvas id="line-chart"></canvas>
                         </div>
                     </section>
@@ -527,9 +525,5 @@ include "header.php";
         */
 
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
     </body>
 </html>

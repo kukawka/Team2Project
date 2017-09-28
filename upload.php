@@ -1,5 +1,5 @@
 <?php
-$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 
 
 $query = isset($_POST['query']) ? $_POST['query'] : null;

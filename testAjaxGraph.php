@@ -1,12 +1,5 @@
 <?php
-$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
-
-/**
- * Created by IntelliJ IDEA.
- * User: cmckillop
- * Date: 13/09/2017
- * Time: 10:45
- */
+//$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
 
 include 'getOverviewData.php';
 $totalData = [];
@@ -33,8 +26,6 @@ $totalJS = json_encode($totalJS);
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link href="assets/styles.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
 
         <title>Overview | Graphs</title>
 
@@ -71,7 +62,7 @@ $totalJS = json_encode($totalJS);
                     <h1 id="overview">Overview</h1>
 
                     <section class="row">
-                        <div class="col-md-3 left">
+                        <div class="col-md-3">
 
                             <form>
                                 <div class="form-group">
@@ -117,7 +108,7 @@ $totalJS = json_encode($totalJS);
                             </form>
 
                         </div>
-                        <div class="col-md-9 right">
+                        <div class="col-md-9">
                             <canvas id="line-chart"></canvas>
                         </div>
                     </section>
@@ -276,9 +267,5 @@ $totalJS = json_encode($totalJS);
         */
 
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
     </body>
 </html>

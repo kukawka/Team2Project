@@ -187,13 +187,22 @@ div.tab-content {
     padding:25px;
     text-align: center;
     vertical-align: middle;
-    font:20pt bold,"Vollkorn";color:#bbb;
+    font-size: 20pt;
+    color: #bbbbbb;
     width: 100%;
     min-height: 250px;
+}
+
+#drop span{
+    display: block;
 }
 
 .thumb {
     height: 75px;
     border: 1px solid #000;
     margin: 10px 5px 0 0;
+}
+
+.date-picker {
+    width: 100% !important;
 }
