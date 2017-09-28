@@ -33,6 +33,13 @@ h1 {
     float: right;
 }
 
+@media (max-width: 62em) {
+    .dropdown-menu {
+        position: relative;
+        float: none !important;
+    }
+}
+
 /*
  * Sidebar
  */
@@ -205,4 +212,15 @@ div.tab-content {
 
 .date-picker {
     width: 100% !important;
+}
+
+/*
+ * Help Page
+ */
+.pdf-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
