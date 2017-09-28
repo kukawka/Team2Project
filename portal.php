@@ -45,7 +45,7 @@ include "header.php";
 
                                     <div class="tab-pane fade show active" id="overview-left" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
                                                 <div class="circle-widget circle-left" id="totalVal"><span>£1,133</span></div>
-                                        <p class="card-text ticker-widget" id="totalPercent" >⬆5%</p>
+                                        <p class="card-text ticker-widget" id="totalPercent" data-toggle="tooltip" data-placement="bottom" title="Explanation" >⬆5%</p>
                                     </div>
                                     <div class="tab-pane fade" id="chart-left" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
                                         <canvas class="portal-chart" id="myChart"></canvas>
