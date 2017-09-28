@@ -45,7 +45,7 @@ include "header.php";
 
                                     <div class="tab-pane fade show active" id="overview-left" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
                                                 <div class="circle-widget circle-left" id="totalVal"><span>£1,133</span></div>
-                                        <p class="card-text ticker-widget">⬆5%</p>
+                                        <p class="card-text ticker-widget" id="totalPercent" >⬆5%</p>
                                     </div>
                                     <div class="tab-pane fade" id="chart-left" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
                                         <canvas class="portal-chart" id="myChart"></canvas>
@@ -58,7 +58,7 @@ include "header.php";
                                                 <th style="border-top: none;">Total</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="outletList">
                                             <!--<tr>
                                                 <td>Mono</td>
                                                 <td>£5,329</td>
@@ -132,8 +132,8 @@ include "header.php";
                                     <hr>
 
                                     <div class="tab-pane fade show active" id="overview-right" role="tabpanel" aria-labelledby="overview-tab" aria-expanded="true">
-                                        <div class="circle-widget circle-right">526</div>
-                                        <p class="card-text ticker-widget">⬇2%</p>
+                                        <div class="circle-widget circle-right" id="activeCus">526</div>
+                                        <p class="card-text ticker-widget" id="activePercent">⬇2%</p>
                                     </div>
 
                                     <div class="tab-pane fade" id="chart-right" role="tabpanel" aria-labelledby="chart-tab" aria-expanded="false">
@@ -147,7 +147,8 @@ include "header.php";
                                                 <th style="border-top: none;">Total</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="userList">
+											<!--
                                             <tr>
                                                 <td>Monday</td>
                                                 <td>99</td>
@@ -175,7 +176,7 @@ include "header.php";
                                             <tr>
                                                 <td>Sunday</td>
                                                 <td>78</td>
-                                            </tr>
+                                            </tr>-->
                                             </tbody>
                                         </table>
                                     </div>
@@ -204,6 +205,8 @@ include "header.php";
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+
 <script>
     var totData = <?php echo $leftChartTotalJS; ?>;
     var numData =[];
@@ -219,15 +222,75 @@ include "header.php";
         }
     }
 	
-	for (var i = 0; i < labelNames.length; i++) {
-        $("tbody").append("<tr><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>")
+	for (var i = 0; i < labelNames.length; i++){
+        $("#outletList").append("<tr><td>"+labelNames[i]+"</td><td>£"+numData[i]+"</td></tr>");
+    }
+	
+	var userData = <?php echo $allUsers; ?>;
+    var userNumData =[];
+    for (var i = 0; i < userData.length; i++) {
+        if(i % 2 === 0) { // index is even
+            userNumData.push(userData[i]);
+        }
+    }
+    var userLabelNames = [];
+    for (var i = 0; i < userData.length; i++) {
+        if(i % 2 === 1) { // index is odd
+            userLabelNames.push(userData[i]);
+        }
+    }
+	
+	for (var i = 0; i < userLabelNames.length; i++) {
+        $("#userList").append("<tr><td>"+userLabelNames[i]+"</td><td>"+userNumData[i]+"</td></tr>");
     }
 	
 	
-	
+	var cus = <?php echo $active; ?>;
+	console.dir(cus);
+	 $('#activeCus').text(cus[0]);
+
+	 var activeLast = <?php echo $activeLast; ?>;
+	 console.dir(activeLast);
+	 var percent = activeLast[0];
+	 if(percent > cus[0]){
+		 //worse
+		 percent = percent/cus[0] * 100;
+		 $('#activePercent').html("<i class=\"fa fa-arrow-down fa-3\" aria-hidden=\"true\"></i>");
+		 $('#activePercent').append(Math.round(percent)+"%");
+		 $('.circle-right').css("box-shadow", "0 0 0 30px #b12f23");
+
+	 } else {
+		//better 
+		percent = cus[0]/percent * 100;
+		$('#activePercent').html("<i class=\"fa fa-arrow-up fa-3\" aria-hidden=\"true\"></i>");
+		$('#activePercent').append(Math.round(percent)+"%");
+		$('.circle-right').css("box-shadow", "0 0 0 30px #23b125");
+	 }
+	 
 	 var total = (numData.reduce(function(sum, value){return parseInt(sum) + parseInt(value);},0));
      $('#totalVal span').text("£"+total);
 	 console.log(total);
+	 
+	 var leftLast = <?php echo $leftLastYear; ?>;
+	 console.dir(leftLast);
+	 var percent = leftLast[0];
+	 if(percent > total){
+		 //worse
+		 percent = percent/total * 100;
+		 $('#totalPercent').html("<i class=\"fa fa-arrow-down fa-3\" aria-hidden=\"true\"></i>");
+		 $('#totalPercent').append(Math.round(percent)+"%");
+		 $('.circle-left').css("box-shadow", "0 0 0 30px #b12f23");
+
+	 } else {
+		//better 
+		percent = total/percent * 100;
+		$('#totalPercent').html("<i class=\"fa fa-arrow-up fa-3\" aria-hidden=\"true\"></i>");
+		$('#totalPercent').append(Math.round(percent)+"%");
+		$('.circle-left').css("box-shadow", "0 0 0 30px #23b125");
+	 }
+	 
+	 
+	 
     var ctx = document.getElementById('myChart').getContext('2d');
     var mixedChart = new Chart(ctx, {
         type: 'doughnut',
@@ -275,5 +338,10 @@ include "header.php";
         }
     });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
 </body>
 </html>
