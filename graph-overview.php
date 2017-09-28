@@ -112,12 +112,16 @@ include "header.php";
         </div>
 
         <script>
+
+            var outlet=<?php echo json_encode($outlet);?> ;
+            var outletName=<?php echo json_encode($_SESSION['userOutletName']);?> ;
+            $('#outletOption').val(outlet);
             
             var graph;
             var totData = <?php echo $totalJS; ?>;
             
             window.onload = function() {
-                constructGraph(totData,"Library",1,true);
+                constructGraph(totData,outletName,1,true);
               };
               
               

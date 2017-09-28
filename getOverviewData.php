@@ -1,5 +1,6 @@
 <?php
 //$q=session_save_path("c:\\websites\\2017-projects\\team2\\sess\\");
+//session_start();
 $year = isset($_POST['yearOption']) ? $_POST['yearOption'] : null;
 $scale = isset($_POST['scaleOption']) ? $_POST['scaleOption'] : null;
 $outlet = isset($_POST['outletOption']) ? $_POST['outletOption'] : null;
@@ -23,7 +24,8 @@ if(!$mysqli){
 
 
 if($outlet == NULL){
-        $outlet = "238";
+        //$outlet = "238";
+    $outlet=$_SESSION['userOutletID'];
 }
 
 if($year == null){
